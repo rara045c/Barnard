@@ -1,0 +1,67 @@
+# #
+# Authors::
+# * Fotis Georgatos <fotis@cern.ch>
+# * Robert Mijakovic <robert.mijakovic@lxp.lu>
+# #
+
+easyblock = 'CMakeMake'
+
+name = 'VTK'
+version = '9.0.1'
+
+homepage = 'https://www.vtk.org'
+description = """The Visualization Toolkit (VTK) is an open-source, freely available software system for
+ 3D computer graphics, image processing and visualization. VTK consists of a C++ class library and several
+ interpreted interface layers including Tcl/Tk, Java, and Python. VTK supports a wide variety of visualization
+ algorithms including: scalar, vector, tensor, texture, and volumetric methods; and advanced modeling techniques
+ such as: implicit modeling, polygon reduction, mesh smoothing, cutting, contouring, and Delaunay triangulation."""
+
+toolchain = {'name': 'foss', 'version': '2021a'}
+toolchainopts = {'usempi': True}
+
+source_urls = ['https://www.%(namelower)s.org/files/release/%(version_major_minor)s']
+sources = [
+    SOURCE_TAR_GZ,
+    '%(name)sData-%(version)s.tar.gz',
+]
+patches = [('%(namelower)s-version.egg-info', '.')]
+checksums = [
+    '1b39a5e191c282861e7af4101eaa8585969a2de05f5646c9199a161213a622c7',  # %(name)s-%(version)s.tar.gz
+    '3f8bfdadd66e0b541bc5580340481abf92bec100b09d787283632ab590b1ce1c',  # VTKData-%(version)s.tar.gz
+    '787b82415ae7a4a1f815b4db0e25f7abc809a05fc85d7d219627f3a7e5d3867b',  # %(namelower)s-version.egg-info
+]
+
+builddependencies = [
+    ('CMake', '3.20.1', '', ('GCCcore', '10.3.0')),
+]
+dependencies = [
+    ('Python', '3.9.5', '', ('GCCcore', '10.3.0')),
+    ('SciPy-bundle', '2021.05'),
+    ('XZ', '5.2.5', '', ('GCCcore', '10.3.0')),
+    ('libGLU', '9.0.1', '', ('GCCcore', '10.3.0')),
+    ('X11', '20210518', '', ('GCCcore', '10.3.0')),
+]
+
+# OpenGL
+configopts = "-DOPENGL_glu_LIBRARY=$EBROOTLIBGLU/lib/libGLU.so -DOPENGL_gl_LIBRARY=$EBROOTMESA/lib/libGL.so -DOPENGL_INCLUDE_DIR=$EBROOTMESA/include -DVTK_WRAP_PYTHON=ON -DVTK_PYTHON_VERSION=3 -DVTK_PYTHON_OPTIONAL_LINK=OFF -DPython3_EXECUTABLE=$EBROOTPYTHON/bin/python -DVTK_USE_MPI=ON -DCMAKE_INSTALL_LIBDIR=lib"
+
+preinstallopts = "export PYTHONPATH=%(installdir)s/lib/python%(pyshortver)s/site-packages:$PYTHONPATH && "
+
+postinstallcmds = [
+    'sed "s/#VTK_VERSION#/%(version)s/" %(builddir)s/%(name)s-%(version)s/%(namelower)s-version.egg-info > %(installdir)s/lib/python%(pyshortver)s/site-packages/%(namelower)s-%(version)s.egg-info',
+]
+
+sanity_check_paths = {
+    'files': ['bin/vtkWrapJava-%(version_major_minor)s', 'bin/vtkParseJava-%(version_major_minor)s', 'bin/vtkWrapPythonInit-%(version_major_minor)s', 'bin/vtkWrapPython-%(version_major_minor)s', 'bin/vtkWrapHierarchy-%(version_major_minor)s', 'bin/vtkpython', 'include/%(namelower)s-%(version_major_minor)s/vtkMPI.h', 'lib/libvtkCommonCore-%(version_major_minor)s.so', 'lib/libvtkIONetCDF-%(version_major_minor)s.so', 'lib/libvtkParallelCore-%(version_major_minor)s.so', 'lib/libvtkRenderingOpenGL2-%(version_major_minor)s.so'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages/', 'include/%(namelower)s-%(version_major_minor)s'],
+}
+
+sanity_check_commands = [
+    "python -c 'import %(namelower)s'",
+    """python -c 'import pkg_resources; pkg_resources.get_distribution("%(namelower)s")'""",
+    "ldd $EBROOTVTK/lib/libvtkPythonContext2D-%(version_major_minor)s.so | grep /libpython",
+]
+
+modextrapaths = {'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']}
+
+moduleclass = 'vis'

@@ -1,0 +1,52 @@
+easyblock = 'Tarball'
+
+name = 'DDT'
+version = '21.1.2'
+
+homepage = 'https://developer.arm.com/products/software-development-tools/hpc/downloads/download-arm-forge'
+description = """Arm DDT is a cross-platform debugger for C, C++, Fortran
+threaded and parallel codes, compatible with most flavors of Linux on Intel
+x86_64 (Xeon), IBM Power8, NVIDIA CUDA, and Armv8-A hardware."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+source_urls = ['http://content.allinea.com/downloads/']
+sources = ['arm-forge-%(version)s-linux-%(arch)s.tar']
+
+postinstallcmds = [
+    """./textinstall.sh --accept-licence %(installdir)s && echo -e "type=2
+serial_number=9976
+hostname=licenses.zih.tu-dresden.de
+serverport=4241" > %(installdir)s/licences/License && echo -e "type=2
+serial_number=1844
+hostname=licenses.zih.tu-dresden.de
+serverport=4252" > %(installdir)s/licences/License-%(name)s""",
+]
+
+# use ddt's libexec/gdb instead of GDB
+# dependencies = [('GDB','8.1.1')]
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s'],
+    'dirs': ['bin', 'licences'],
+}
+
+modextrapaths = {
+    'LD_LIBRARY_PATH': 'lib/64',
+    'PATH': 'libexec',
+    # 'MODULEPATH': 'share/modules/cray',
+}
+
+modextravars = {
+    'ALLINEA_MPIRUN': 'srun',
+    'DDT_EXAMPLES': '%(installdir)s/examples',
+    'DDT_LINK_DMALLOC': "-L%(installdir)s/lib/64 -ldmalloc",
+    'DDT_LINK_DMALLOCTH': "-L%(installdir)s/lib/64 -ldmallocth",
+    'DDT_LINK_DMALLOCTHCXX': "-L%(installdir)s/lib/64 -ldmallocthcxx",
+    'DDT_LINK_DMALLOCXX': "-L%(installdir)s/lib/64 -ldmallocxx",
+    'DDT_MEM': '-L%(installdir)s/lib/64',
+    'DDT_NO_TIMEOUT': '1',
+    # WIP: 'ALLINEA_CONFIG_DIR': '',
+}
+
+moduleclass = 'tools'

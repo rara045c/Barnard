@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'intltool'
+version = '0.51.0'
+
+homepage = 'https://freedesktop.org/wiki/Software/intltool/'
+description = """intltool is a set of tools to centralize translation of
+ many different file formats using GNU gettext-compatible PO files."""
+
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+
+source_urls = ['https://launchpad.net/%(name)s/trunk/%(version)s/+download/']
+sources = [SOURCE_TAR_GZ]
+patches = ['%(name)s-%(version)s_fix-Perl-compat.patch']
+checksums = [
+    '67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd',  # %(name)s-%(version)s.tar.gz
+    'e839f7228b2b92301831bca88ed0bc7bce5dbf862568f1644642988204903db6',  # %(name)s-%(version_major_minor)s.0_fix-Perl-compat.patch
+]
+
+builddependencies = [
+    ('binutils', '2.38'),
+]
+dependencies = [
+    ('Perl', '5.34.1'),
+]
+
+fix_perl_shebang_for = ['bin/%(name)s-*']
+
+sanity_check_paths = {
+    'files': ['bin/%(name)s-extract', 'bin/%(name)s-merge', 'bin/%(name)s-prepare', 'bin/%(name)s-update', 'bin/intltoolize'],
+    'dirs': [],
+}
+
+sanity_check_commands = ['%(name)s-merge --help']
+
+moduleclass = 'devel'

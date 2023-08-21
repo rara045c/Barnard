@@ -1,0 +1,33 @@
+easyblock = 'PackedBinary'
+
+name = 'Java'
+version = '1.8.0_161'
+versionsuffix = '-OpenJDK'
+
+homepage = 'https://jdk.java.net/8/'
+description = """ This page provides production-ready open-source builds of the Java
+Development Kit, version 11.0.2, an implementation of the Java SE 11.0.2 Platform
+under the GNU General Public License, version 2, with the Classpath Exception."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+source_urls = []
+sources = [{'filename': 'java-1.8.0-openjdk-1.8.0.161.tar.gz', 'extract_cmd': "tar xhfvz %s",}]
+keepsymlinks = True
+
+modextrapaths = {'JAVA_HOME': '',
+    'LD_LIBRARY_PATH': [
+        'lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/lib/',
+        'lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/lib/amd64/jli/',
+        'lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/lib/amd64/',
+        'lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/jre/lib/amd64/server/',
+    ]
+}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['bin/', 'lib/'],
+}
+
+moduleclass = 'lang'
+

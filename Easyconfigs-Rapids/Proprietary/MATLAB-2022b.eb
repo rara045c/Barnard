@@ -1,0 +1,37 @@
+name = 'MATLAB'
+version = '2022b'
+
+homepage = 'https://www.mathworks.com/products/matlab'
+description = """MATLAB is a high-level language and interactive environment
+ that enables you to perform computationally intensive tasks faster than with
+ traditional programming languages such as C, C++, and Fortran."""
+
+toolchain = SYSTEM
+
+#sources = [SOURCELOWER_TAR_GZ]
+sources = ['/software/util/sources/m/MATLAB/MATLAB-2022b/matlab-2022b.tar.gz']
+
+
+java_options = '-Xmx2048m'
+
+# Use EB_MATLAB_KEY environment variable or uncomment and modify license key
+# key = '00000-00000-00000-00000-00000-00000-00000-00000-00000-00000-00000-00000'
+
+
+key='08731-30936-64004-22761-38033-23229-33496-38386-37540-44724-55238-42503-63403-56304-27691-09747-42732-13612-62480-08471-27300-39111-00779-31415-63698-34556'
+
+license_server ='licenses.zih.tu-dresden.de;licenses2.zih.tu-dresden.de;licenses3.zih.tu-dresden.de'
+
+license_server_port = '1250'
+
+dependencies = [
+    ('Java', '1.8.0_161', '-OpenJDK'),
+]
+
+# Use EB_MATLAB_LICENSE_SERVER and EB_MATLAB_LICENSE_SERVER_PORT environment variables or
+# uncomment and modify the following variables for installation with floating license server
+# license_file = 'my-license-file'
+# license_server_port = 'XXXXX'
+
+moduleclass = 'math'
+

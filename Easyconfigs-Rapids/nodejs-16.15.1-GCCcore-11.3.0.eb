@@ -1,0 +1,49 @@
+easyblock = 'ConfigureMake'
+
+name = 'nodejs'
+version = '16.15.1'  # LTS on 2022-06-12
+
+homepage = 'https://nodejs.org'
+description = """Node.js is a platform built on Chrome's JavaScript runtime
+ for easily building fast, scalable network applications. Node.js uses an
+ event-driven, non-blocking I/O model that makes it lightweight and efficient,
+ perfect for data-intensive real-time applications that run across distributed devices."""
+
+toolchain = {'name': 'GCCcore', 'version': '11.3.0'}
+
+source_urls = ['https://%(name)s.org/dist/v%(version)s/']
+sources = ['node-v%(version)s.tar.gz']
+patches = ['%(name)s-%(version)s_fix-argument-list-too-long.patch']
+checksums = [
+    {'node-v16.15.1.tar.gz': '308aee7149c4092a53c87c28ef49e23a8d1606119e79ae68333062e2a1f94208'},
+    {'%(name)s-%(version_major_minor)s.1_fix-argument-list-too-long.patch': '36b5627e60fd2b861ce3dc5445b137b4fe7ec30a4f866ea540ec56bda9686405'},
+]
+
+builddependencies = [
+    ('binutils', '2.38'),
+    ('pkgconf', '1.8.0'),
+    ('Python', '3.10.4', '-bare'),
+]
+dependencies = [
+    ('ICU', '71.1'),
+    ('OpenSSL', '1.1', '', SYSTEM),
+]
+
+configopts = [
+    "--with-intl=system-icu --shared-openssl ",
+    "--shared --with-intl=system-icu --shared-openssl ",
+]
+
+postinstallcmds = [
+    "cd %(installdir)s/lib && ln -s libnode.so.93 libnode.so",
+    "cd %(installdir)s/lib && ln -s libnode.so.93 libv8.so",
+    "cd %(installdir)s/lib && ln -s libnode.so.93 libv8_libbase.so",
+    "cd %(installdir)s/lib && ln -s libnode.so.93 libv8_libplatform.so",
+]
+
+sanity_check_paths = {
+    'files': ['bin/node', 'bin/npm', 'lib/libnode.so.93', 'lib/libnode.so', 'lib/libv8.so', 'lib/libv8_libbase.so', 'lib/libv8_libplatform.so'],
+    'dirs': ['lib/node_modules', 'include/node'],
+}
+
+moduleclass = 'lang'

@@ -1,0 +1,23 @@
+easyblock = 'Toolchain'
+
+name = 'foss'
+version = '2020b'
+
+homepage = 'https://easybuild.readthedocs.io/en/master/Common-toolchains.html#foss-toolchain'
+description = """GNU Compiler Collection (GCC) based compiler toolchain, including
+ OpenMPI for MPI support, OpenBLAS (BLAS and LAPACK support), FFTW and ScaLAPACK."""
+
+toolchain = {'name': 'system', 'version': 'system'}
+
+# we need GCC and OpenMPI as explicit dependencies instead of gompi toolchain
+# because of toolchain preparation functions
+dependencies = [
+    ('GCC', '10.2.0'),
+    ('OpenMPI', '4.0.5', '', ('GCC', '10.2.0')),
+    ('OpenBLAS', '0.3.12', '', ('GCC', '10.2.0')),
+    ('FFTW', '3.3.8', '', ('gompi', '2020b')),
+    ('ScaLAPACK', '2.1.0', '', ('gompi', '2020b')),
+]
+
+
+moduleclass = 'toolchain'

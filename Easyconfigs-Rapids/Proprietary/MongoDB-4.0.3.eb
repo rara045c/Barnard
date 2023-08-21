@@ -1,0 +1,26 @@
+easyblock = 'PackedBinary'
+
+name = 'MongoDB'
+version = '4.0.3'
+
+homepage = 'https://www.mongodb.com/try/download/community'
+
+description = """
+The community version of our distributed document
+database provides powerful ways to query and analyze your data.
+"""
+
+toolchain = SYSTEM
+
+source_urls = ['https://fastdl.mongodb.org/linux/']
+sources = ['%(namelower)s-linux-x86_64-rhel70-%(version)s.tgz']
+
+
+
+sanity_check_paths = {
+    'files': ['bin/install_compass', 'bin/mongod', 'bin/mongos'],
+    'dirs': ['bin']
+}
+
+moduleclass = 'data'
+

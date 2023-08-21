@@ -1,0 +1,45 @@
+easyblock = 'Bundle'
+
+name = 'FlexiBLAS'
+version = '3.0.4'
+
+homepage = 'https://gitlab.mpi-magdeburg.mpg.de/software/flexiblas-release'
+description = """FlexiBLAS is a wrapper library that enables the exchange of the BLAS and LAPACK implementation
+used by a program without recompiling or relinking it."""
+
+toolchain = {'name': 'GCC', 'version': '11.2.0'}
+toolchainopts = {'pic': True, 'extra_cflags': '-fstack-protector-strong -fstack-clash-protection', 'extra_fflags': '-fstack-protector-strong -fstack-clash-protection'}
+
+sources = [
+    {'filename': SOURCELOWER_TAR_GZ, 'source_urls': ['https://csc.mpi-magdeburg.mpg.de/mpcsc/software/%(namelower)s/']},
+    {'filename': 'v3.10.0.tar.gz', 'source_urls': ['https://github.com/Reference-LAPACK/lapack/archive/']},
+]
+checksums = [
+    '50a88f2e88994dda91b2a2621850afd9654b3b84820e737e335687a46751be5c',
+    '328c1bea493a32cac5257d84157dc686cc3ab0b004e2bea22044e0a59f6f8a19',
+]
+
+builddependencies = [
+    ('CMake', '3.21.1', '', ('GCCcore', '11.2.0')),
+    ('Python', '3.9.6', '', ('GCCcore', '11.2.0')),
+    ('BLIS', '0.8.1'),
+    # imkl is commented out, since installing it requires accepting the Intel oneAPI EULA;
+    # note: also commented out the lines below to add imkl to 'backends'!
+    # ('imkl', {'arch=x86_64': '2021.4.0', 'arch=*': False}, '', SYSTEM),
+]
+dependencies = [
+    ('OpenBLAS', '0.3.18'),
+]
+
+# if ARCH == 'x86_64':
+# local_backends.append('imkl')
+
+default_component_specs = {'start_dir': '%(namelower)s-%(version)s'}
+# Also build and install LAPACKE, which FlexiBLAS does not support yet
+components = [
+    ('%(name)s', '%(version)s', {'source_urls': ['https://csc.mpi-magdeburg.mpg.de/mpcsc/software/%(namelower)s/'], 'sources': [SOURCELOWER_TAR_GZ], 'checksums': ['50a88f2e88994dda91b2a2621850afd9654b3b84820e737e335687a46751be5c'], 'backends': ['OpenBLAS', 'BLIS']}),
+    ('LAPACK', '3.10.0', {'easyblock': 'CMakeMake', 'source_urls': ['https://github.com/Reference-LAPACK/lapack/archive/'], 'sources': ['v%(version)s.tar.gz'], 'checksums': ['328c1bea493a32cac5257d84157dc686cc3ab0b004e2bea22044e0a59f6f8a19'], 'configopts': '-DBUILD_SHARED_LIBS=ON -DUSE_OPTIMIZED_BLAS=ON -DLAPACKE=ON -DUSE_OPTIMIZED_LAPACK=ON -DBUILD_DEPRECATED=ON -DCMAKE_INSTALL_INCLUDEDIR=%(installdir)s/include/%(namelower)s', 'sanity_check_paths': {'files': ['lib/liblapacke.so', 'include/%(namelower)s/lapacke.h'], 'dirs': []}}),
+]
+sanity_check_all_components = True
+
+moduleclass = 'lib'

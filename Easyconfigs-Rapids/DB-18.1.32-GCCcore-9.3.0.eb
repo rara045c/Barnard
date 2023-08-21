@@ -1,0 +1,26 @@
+# EasyBuild easyconfig
+name = 'DB'
+version = '18.1.32'
+
+homepage = 'https://www.oracle.com/technetwork/products/berkeleydb'
+description = """Berkeley DB enables the development of custom data management
+ solutions, without the overhead traditionally associated with such custom
+ projects."""
+
+toolchain = {'name': 'GCCcore', 'version': '9.3.0'}
+
+source_urls = ['https://gentoo.osuosl.org/distfiles/']
+sources = [SOURCELOWER_TAR_GZ]
+checksums = ['fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654']
+
+builddependencies = [
+    ('binutils', '2.34'),
+]
+
+
+sanity_check_paths = {
+    'files': ['bin/db_archive', 'bin/db_checkpoint', 'bin/db_convert', 'bin/db_deadlock', 'bin/db_dump', 'bin/db_hotbackup', 'bin/db_load', 'bin/db_log_verify', 'bin/db_printlog', 'bin/db_recover', 'bin/db_replicate', 'bin/db_stat', 'bin/db_tuner', 'bin/db_upgrade', 'bin/db_verify', 'include/db.h', 'lib/libdb.a', 'lib/libdb.so'],
+    'dirs': [],
+}
+
+moduleclass = 'tools'

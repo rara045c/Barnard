@@ -1,0 +1,43 @@
+easyblock = 'MesonNinja'
+
+name = 'GST-plugins-bad'
+version = '1.20.2'
+
+homepage = 'https://gstreamer.freedesktop.org/'
+description = """GStreamer is a library for constructing graphs of media-handling
+ components. The applications it supports range from simple
+ Ogg/Vorbis playback, audio/video streaming to complex audio
+ (mixing) and video (non-linear editing) processing."""
+
+toolchain = {'name': 'GCC', 'version': '11.3.0'}
+
+source_urls = ['https://gstreamer.freedesktop.org/src/%(namelower)s']
+sources = [SOURCELOWER_TAR_XZ]
+checksums = ['4adc4c05f41051f8136b80cda99b0d049a34e777832f9fea7c5a70347658745b']
+
+builddependencies = [
+    ('Meson', '0.62.1', '', ('GCCcore', '11.3.0')),
+    ('Ninja', '1.10.2', '', ('GCCcore', '11.3.0')),
+    ('GObject-Introspection', '1.72.0', '', ('GCCcore', '11.3.0')),
+    ('gettext', '0.21', '', ('GCCcore', '11.3.0')),
+    ('pkgconf', '1.8.0', '', ('GCCcore', '11.3.0')),
+    ('Bison', '3.8.2', '', ('GCCcore', '11.3.0')),
+]
+dependencies = [
+    ('zlib', '1.2.12', '', ('GCCcore', '11.3.0')),
+    ('GLib', '2.72.1', '', ('GCCcore', '11.3.0')),
+    ('GStreamer', '1.20.2'),
+    ('Gdk-Pixbuf', '2.42.8', '', ('GCCcore', '11.3.0')),
+    ('X11', '20220504', '', ('GCCcore', '11.3.0')),
+    ('Mesa', '22.0.3', '', ('GCCcore', '11.3.0')),
+    ('Graphene', '1.10.8', '', ('GCCcore', '11.3.0')),
+    ('GST-plugins-base', '1.20.2'),
+]
+
+
+sanity_check_paths = {
+    'files': ['bin/gst-transcoder-1.0', 'bin/playout', 'lib/libgstadaptivedemux-1.0.so', 'lib/libgstbadaudio-1.0.so', 'lib/libgstcodecs-1.0.so', 'lib/libgstplayer-1.0.so'],
+    'dirs': ['include', 'share'],
+}
+
+moduleclass = 'vis'

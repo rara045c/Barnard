@@ -1,0 +1,38 @@
+easyblock = 'CMakeMake'
+
+name = 'ecCodes'
+version = '2.22.1'
+
+homepage = 'https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home'
+description = """ecCodes is a package developed by ECMWF which provides an application programming interface and
+ a set of tools for decoding and encoding messages in the following formats: WMO FM-92 GRIB edition 1 and edition 2,
+ WMO FM-94 BUFR edition 3 and edition 4, WMO GTS abbreviated header (only decoding)."""
+
+toolchain = {'name': 'gompi', 'version': '2021a'}
+toolchainopts = {'usempi': False, 'openmp': True}
+
+source_urls = ['https://confluence.ecmwf.int/download/attachments/45757960/']
+sources = ['%(namelower)s-%(version)s-Source.tar.gz']
+checksums = ['75c7ee96469bb30b0c8f7edbdc4429ece4415897969f75c36173545242bc9e85']
+
+builddependencies = [
+    ('CMake', '3.20.1', '', ('GCCcore', '10.3.0')),
+]
+dependencies = [
+    ('netCDF', '4.8.0'),
+    ('JasPer', '2.0.28', '', ('GCCcore', '10.3.0')),
+    ('libjpeg-turbo', '2.0.6', '', ('GCCcore', '10.3.0')),
+    ('libpng', '1.6.37', '', ('GCCcore', '10.3.0')),
+    ('zlib', '1.2.11', '', ('GCCcore', '10.3.0')),
+]
+
+# Python bindings are now provided by a separate package 'eccodes-python'
+configopts = "-DENABLE_NETCDF=ON -DENABLE_PNG=ON -DENABLE_JPG=ON -DENABLE_JPG_LIBJASPER=ON -DENABLE_ECCODES_OMP_THREADS=ON"
+
+
+sanity_check_paths = {
+    'files': ['bin/bufr_compare', 'bin/bufr_copy', 'bin/bufr_dump', 'bin/bufr_filter', 'bin/bufr_get', 'bin/bufr_ls', 'bin/grib_compare', 'bin/grib_copy', 'bin/grib_dump', 'bin/grib_filter', 'bin/grib_get', 'bin/grib_ls', 'bin/gts_compare', 'bin/gts_copy', 'bin/gts_dump', 'bin/gts_filter', 'bin/gts_get', 'bin/gts_ls', 'bin/metar_compare', 'bin/metar_copy', 'bin/metar_dump', 'bin/metar_filter', 'bin/metar_get', 'bin/metar_ls', 'bin/codes_count', 'bin/codes_info', 'bin/codes_split_file', 'lib/libeccodes_f90.so', 'lib/libeccodes.so'],
+    'dirs': ['include'],
+}
+
+moduleclass = 'tools'

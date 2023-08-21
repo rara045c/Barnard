@@ -1,0 +1,58 @@
+easyblock = 'CMakeNinja'
+
+name = 'Arrow'
+version = '10.0.1'
+
+homepage = 'https://arrow.apache.org'
+description = """Apache Arrow (incl. PyArrow Python bindings), a cross-language development platform
+ for in-memory data."""
+
+toolchain = {'name': 'foss', 'version': '2021b'}
+
+source_urls = ['https://archive.apache.org/dist/%(namelower)s/%(namelower)s-%(version)s']
+sources = ['apache-%(namelower)s-%(version)s.tar.gz']
+checksums = ['c814e0670112a22c1a6ec03ab420a52ae236a9a42e9e438c3cbd37f37e658fb3']
+
+builddependencies = [
+    ('CMake', '3.21.1', '', ('GCCcore', '11.2.0')),
+    ('Autotools', '20210726', '', ('GCCcore', '11.2.0')),
+    ('flex', '2.6.4', '', ('GCCcore', '11.2.0')),
+    ('Bison', '3.7.6', '', ('GCCcore', '11.2.0')),
+    ('pkg-config', '0.29.2', '', ('GCCcore', '11.2.0')),
+    ('Ninja', '1.10.2', '', ('GCCcore', '11.2.0')),
+    ('LLVM', '12.0.1', '', ('GCCcore', '11.2.0')),
+]
+dependencies = [
+    ('Python', '3.9.6', '', ('GCCcore', '11.2.0')),
+    ('SciPy-bundle', '2021.10'),
+    ('Boost', '1.77.0', '', ('GCC', '11.2.0')),
+    ('lz4', '1.9.3', '', ('GCCcore', '11.2.0')),
+    ('zlib', '1.2.11', '', ('GCCcore', '11.2.0')),
+    ('bzip2', '1.0.8', '', ('GCCcore', '11.2.0')),
+    ('zstd', '1.5.0', '', ('GCCcore', '11.2.0')),
+    ('snappy', '1.1.9', '', ('GCCcore', '11.2.0')),
+    ('RapidJSON', '1.1.0', '', ('GCCcore', '11.2.0')),
+    ('RE2', '2022-02-01', '', ('GCCcore', '11.2.0')),
+    ('utf8proc', '2.6.1', '', ('GCCcore', '11.2.0')),
+]
+
+configopts = "--preset ninja-release-maximal -DARROW_BUILD_STATIC=ON -DARROW_GCS=OFF -DARROW_SKYHOOK=OFF -DARROW_CUDA=OFF -DARROW_GANDIVA=OFF -DCMAKE_INSTALL_LIBDIR=lib -DPython3_ROOT_DIR=$EBROOTPYTHON"
+
+postinstallcmds = [
+    """export PKG_CONFIG_PATH=%(installdir)s/lib/pkgconfig:$PKG_CONFIG_PATH && export PYTHONPATH=%(installdir)s/lib/python%(pyshortver)s/site-packages:$PYTHONPATH && cd %(builddir)s/*%(namelower)s-%(version)s/python && export XDG_CACHE_HOME=$TMPDIR && sed -i 's/numpy==[0-9.]*/numpy/g' pyproject.toml && Python3_ROOT_DIR=$EBROOTPYTHON PYARROW_WITH_CSV=1 PYARROW_WITH_FLIGHT=1 PYARROW_WITH_GANDIVA=0 PYARROW_WITH_HDFS=1 PYARROW_WITH_ORC=1 PYARROW_WITH_PARQUET=1 PYARROW_WITH_PARQUET_ENCRYPTION=1 PYARROW_WITH_S3=1 PYARROW_WITH_SUBSTRAIT=1 CMAKE_PREFIX_PATH="%(installdir)s:../cpp:${CMAKE_PREFIX_PATH}" pip install --prefix %(installdir)s . --no-build-isolation""",
+]
+start_dir = 'cpp'
+
+sanity_check_paths = {
+    'files': ['lib/libarrow.a', 'lib/libarrow.so', 'lib/python%(pyshortver)s/site-packages/pyarrow/libarrow_python.so'],
+    'dirs': ['include/%(namelower)s', 'lib/cmake/%(name)s', 'lib/pkgconfig', 'lib/python%(pyshortver)s/site-packages/pyarrow/'],
+}
+
+sanity_check_commands = [
+    "python -c 'import pyarrow'",
+    "python -c 'import pyarrow.parquet'",
+]
+
+modextrapaths = {'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'}
+
+moduleclass = 'data'

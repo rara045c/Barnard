@@ -1,0 +1,28 @@
+easyblock = "Tarball"
+
+name = 'LS-PrePost'
+version = '4.9.11-Mesa'
+
+homepage = 'https://lstc.com/products/ls-prepost'
+description = """LS-PrePost is an advanced pre and post-processor that is delivered free with LS-DYNA."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://ftp.lstc.com/anonymous/outgoing/lsprepost/4.9/linux64/']
+sources = ['lsprepost-4.9.11-common_gtk3-22Nov2022.tgz']
+
+postinstallcmds = [
+    "sed -e 's,^DN=.*,DN=%(installdir)s,' -i %(installdir)s/lspp49",
+    "sed -e 's,^DN=.*,DN=%(installdir)s,' -i %(installdir)s/lspp49_mesa",
+    "cd %(installdir)s && chmod a+x lsdyna_bestfit lspp49 lspp49_mesa lsrun lsprepost2 msuite_ls_64 tetgen",
+]
+
+modextrapaths = {'PATH': '.', 'LD_LIBRARY_PATH': 'lib', 'LSPP_HELPDIR': 'resource/HelpDocument'}
+
+sanity_check_paths = {
+    'files': ['lsprepost2'],
+    'dirs': ['lib2']
+}
+
+moduleclass = 'cae'
+

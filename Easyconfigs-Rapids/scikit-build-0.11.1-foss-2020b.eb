@@ -1,0 +1,53 @@
+easyblock = 'PythonBundle'
+
+name = 'scikit-build'
+version = '0.11.1'
+
+homepage = 'https://scikit-build.readthedocs.io/en/latest'
+description = """Scikit-Build, or skbuild, is an improved build system generator
+for CPython C/C++/Fortran/Cython extensions."""
+
+toolchain = {'name': 'foss', 'version': '2020b'}
+
+dependencies = [
+    ('Python', '3.8.6', '', ('GCCcore', '10.2.0')),
+]
+
+exts_defaultclass = 'PythonPackage'
+exts_filter = (
+    'python -c "import %(ext_name)s"',
+    '',
+)
+sanity_pip_check = True
+use_pip = True
+
+exts_default_options = {
+    'buildcmd': None,
+    'check_ldshared': None,
+    'download_dep_fail': True,
+    'install_src': None,
+    'install_target': 'install',
+    'options': {},
+    'pip_ignore_installed': True,
+    'pip_no_index': None,
+    'req_py_majver': None,
+    'req_py_minver': None,
+    'runtest': True,
+    'sanity_pip_check': True,
+    'source_urls': ['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s'],
+    'unpack_sources': None,
+    'unversioned_packages': [],
+    'use_pip': True,
+    'use_pip_editable': False,
+    'use_pip_extras': None,
+    'use_pip_for_deps': False,
+    'use_pip_requirement': False,
+    'zipped_egg': False,
+}
+
+exts_list = [
+    ('distro', '1.5.0', {'checksums': ['0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92']}),
+    ('scikit-build', '0.11.1', {'modulename': 'skbuild', 'checksums': ['da40dfd69b2456fad1349a894b90180b43712152b8a85d2a00f4ae2ce8ac9a5c']}),
+]
+
+moduleclass = 'lib'

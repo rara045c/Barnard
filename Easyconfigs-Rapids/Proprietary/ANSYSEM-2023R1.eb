@@ -1,0 +1,22 @@
+easyblock = 'Binary'
+
+name = 'ANSYSEM'
+version = '2023R1'
+
+homepage = 'https://www.ansys.com/products/electronics/ansys-electronics-desktop'
+description = """Ansys Electronics Desktop is a comprehensive platform that enables electrical engineers to design and
+simulate various electrical, electronic and electromagnetic components, devices and systems."""
+
+toolchain = {'name': 'system', 'version': 'system'}
+
+sources = ['/dev/shm/rara045c/sources/a/%(name)s/ELECTRONICS_%(version)s_LINX64.tgz']
+
+extract_sources = True
+install_cmd = "cd %(builddir)s/Electronics_231_linx64/Linux/AnsysEM/Disk1/InstData;./setup.exe -i silent -DUSER_INSTALL_DIR=%(installdir)s -DTMP_DIR=/dev/shm/ -DLIBRARY_COMMON_INSTALL=1 -DSPECIFY_LIC_CFG=1 -DLICENSE_SERVER1=licserv.zih.tu-dresden.de;"
+
+sanity_check_paths = {
+    'files': ['v231/Linux64/ansysedt'],
+    'dirs': ['shared_files', 'v231'],
+}
+
+moduleclass = 'tools'

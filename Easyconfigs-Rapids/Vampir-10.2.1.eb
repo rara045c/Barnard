@@ -1,0 +1,27 @@
+easyblock = 'Binary'
+
+name = 'Vampir'
+version = '10.2.1'
+
+homepage = 'http://www.vampir.eu'
+description = """The Vampir software tool provides an easy-to-use framework that enables
+ developers to quickly display and analyze arbitrary program behavior at any level of detail.
+ The tool suite implements optimized event analysis algorithms and customizable displays that
+ enable fast and interactive rendering of very complex performance monitoring data."""
+
+toolchain = {'name': 'system', 'version': 'system'}
+
+sources = ['%(namelower)s-linux-%(arch)s-setup.bin']
+
+# Adjust this variable to point to the location of your Vampir license file
+license_file = '/home/rara045c/%(name)s/license/%(namelower)s.license'
+install_cmd = "./%(namelower)s-linux-%(arch)s-setup.bin --silent --instdir=%(installdir)s --no-icon --no-menu-items --no-trace-file-association"
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s', 'doc/%(namelower)s-manual.pdf'],
+    'dirs': [],
+}
+
+modextravars = {'VAMPIR_LICENSE': '/home/rara045c/%(name)s/license/%(namelower)s.license'}
+
+moduleclass = 'perf'

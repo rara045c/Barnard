@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'Automake'
+version = '1.16.5'
+
+homepage = 'https://www.gnu.org/software/automake/automake.html'
+description = "Automake: GNU Standards-compliant Makefile generator"
+
+toolchain = {'name': 'system', 'version': 'system'}
+
+source_urls = [GNU_SOURCE]
+sources = [SOURCELOWER_TAR_GZ]
+checksums = ['07bd24ad08a64bc17250ce09ec56e921d6343903943e99ccf63bbf0705e34605']
+
+dependencies = [
+    ('Autoconf', '2.71'),
+]
+
+osdependencies = [('perl-Thread-Queue', 'debianutils')]
+
+preconfigopts = "export PERL='/usr/bin/env perl' && "
+
+
+sanity_check_paths = {
+    'files': ['bin/aclocal', 'bin/%(namelower)s'],
+    'dirs': [],
+}
+
+sanity_check_commands = [
+    "aclocal --help",
+    "%(namelower)s --help",
+]
+
+moduleclass = 'devel'

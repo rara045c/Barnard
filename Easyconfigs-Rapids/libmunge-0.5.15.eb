@@ -1,0 +1,23 @@
+easyblock = 'ConfigureMake'
+
+name = "libmunge"
+version = "0.5.15"
+
+homepage = "https://github.com/dun/munge"
+description = "MUNGE (MUNGE Uid 'N' Gid Emporium) is an authentication service for creating and validating user credentials."
+
+toolchain = SYSTEM
+
+sources = ['/home/rara045c/ebfiles/munge-0.5.15.tar.gz']
+
+
+dependencies = [
+    ('zlib', '1.2.12'),
+    ('OpenSSL', '1.1'),
+    ('bzip2', '1.0.8'),
+    ('pkg-config', '0.29.2'),
+]
+
+moduleclass = "lib"
+
+

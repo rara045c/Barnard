@@ -1,0 +1,53 @@
+# #
+# Author:    Robert Mijakovic <robert.mijakovic@lxp.lu>
+# #
+easyblock = 'CMakeMake'
+
+name = 'ParaView'
+version = '5.10.1'
+versionsuffix = '-mpi'
+
+homepage = 'https://www.paraview.org'
+description = "ParaView is a scientific parallel visualizer."
+
+toolchain = {'name': 'foss', 'version': '2022a'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+source_urls = [
+    'https://www.%(namelower)s.org/%(namelower)s-downloads/download.php?submit=Download&version=v%(version_major_minor)s&type=source&os=all&downloadFile=',
+]
+sources = ['%(name)s-v%(version)s.tar.gz']
+checksums = ['59ca46a929a52d8abec107b72e19447cba3d8e64871b6fbc8e99b0f3b167db46']
+
+builddependencies = [
+    ('CMake', '3.23.1', '', ('GCCcore', '11.3.0')),
+]
+dependencies = [
+    ('Python', '3.10.4', '', ('GCCcore', '11.3.0')),
+    ('SciPy-bundle', '2022.05'),
+    ('XZ', '5.2.5', '', ('GCCcore', '11.3.0')),
+    ('HDF5', '1.12.2', '', ('gompi', '2022a')),
+    ('netCDF', '4.9.0', '', ('gompi', '2022a')),
+    ('libGLU', '9.0.2', '', ('GCCcore', '11.3.0')),
+    ('X11', '20220504', '', ('GCCcore', '11.3.0')),
+    ('Mesa', '22.0.3', '', ('GCCcore', '11.3.0')),
+    ('Qt5', '5.15.5', '', ('GCCcore', '11.3.0')),
+    ('zlib', '1.2.12', '', ('GCCcore', '11.3.0')),
+    ('FFmpeg', '4.4.2', '', ('GCCcore', '11.3.0')),
+    ('Szip', '2.1.1', '', ('GCCcore', '11.3.0')),
+]
+
+# Paraview
+configopts = "-DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DPARAVIEW_BUILD_SHARED_LIBS=ON -DPARAVIEW_USE_MPI=ON -DPARAVIEW_ENABLE_FFMPEG=ON -DPARAVIEW_USE_PYTHON=ON -DPython3_ROOT_DIR=$EBROOTPYTHON -DOPENGL_glu_LIBRARY=$EBROOTLIBGLU/lib/libGLU.so -DOPENGL_INCLUDE_DIR=$EBROOTMESA/include "
+
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s', 'bin/pvpython'],
+    'dirs': ['include/%(namelower)s-%(version_major_minor)s', 'lib/python%(pyshortver)s/site-packages'],
+}
+
+sanity_check_commands = ['python -c "import %(namelower)s"']
+
+modextrapaths = {'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'}
+
+moduleclass = 'vis'

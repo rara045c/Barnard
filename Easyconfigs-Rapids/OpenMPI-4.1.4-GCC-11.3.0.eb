@@ -1,0 +1,50 @@
+name = 'OpenMPI'
+version = '4.1.4'
+
+homepage = 'https://www.open-mpi.org/'
+description = "The Open MPI Project is an open source MPI-3 implementation."
+
+toolchain = {'name': 'GCC', 'version': '11.3.0'}
+
+source_urls = ['https://www.open-mpi.org/software/ompi/v%(version_major_minor)s/downloads']
+sources = [SOURCELOWER_TAR_BZ2]
+patches = [
+    '%(name)s-%(version_major_minor)s.1_build-with-internal-cuda-header.patch',
+    '%(name)s-%(version_major_minor)s.1_opal-datatype-cuda-performance.patch',
+    'mca-params.patch',
+]
+checksums = [
+    '92912e175fd1234368c8730c03f4996fe5942e7479bb1d10059405e7f2b3930d',  # %(namelower)s-%(version)s.tar.bz2
+    # %(name)s-%(version_major_minor)s.1_build-with-internal-cuda-header.patch
+    '63eac52736bdf7644c480362440a7f1f0ae7c7cae47b7565f5635c41793f8c83',
+    # %(name)s-%(version_major_minor)s.1_opal-datatype-cuda-performance.patch
+    'b767c7166cf0b32906132d58de5439c735193c9fd09ec3c5c11db8d5fa68750e',
+]
+
+builddependencies = [
+    ('pkgconf', '1.8.0', '', ('GCCcore', '11.3.0')),
+    ('Perl', '5.34.1', '', ('GCCcore', '11.3.0')),
+    ('Autotools', '20220317', '', ('GCCcore', '11.3.0')),
+]
+dependencies = [
+    ('zlib', '1.2.12', '', ('GCCcore', '11.3.0')),
+    ('hwloc', '2.7.1', '', ('GCCcore', '11.3.0')),
+    ('libevent', '2.1.12', '', ('GCCcore', '11.3.0')),
+    ('UCX', '1.12.1', '', ('GCCcore', '11.3.0')),
+    ('libfabric', '1.15.1', '', ('GCCcore', '11.3.0')),
+    ('PMIx', '4.1.2', '', ('GCCcore', '11.3.0')),
+    ('UCC', '1.0.0', '', ('GCCcore', '11.3.0')),
+]
+
+preconfigopts = "./autogen.pl --force && "
+# CUDA related patches and custom configure option can be removed if CUDA support isn't wanted.
+configopts = "--with-cuda=internal --with-slurm --with-pmix=/usr --with-pmix-libdir=/usr --with-knem=/opt/knem-1.1.4.90mlnx1"
+
+
+# disable MPI1 compatibility for now, see what breaks...
+# configopts += '--enable-mpi1-compatibility '
+
+# to enable SLURM integration (site-specific)
+# configopts += '--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr'
+
+moduleclass = 'mpi'

@@ -1,0 +1,37 @@
+name = 'OpenMPI'
+version = '3.1.4'
+
+homepage = 'https://www.open-mpi.org/'
+description = "The Open MPI Project is an open source MPI-3 implementation."
+
+toolchain = {'name': 'GCC', 'version': '8.3.0'}
+
+source_urls = ['https://www.open-mpi.org/software/ompi/v%(version_major_minor)s/downloads']
+sources = [SOURCELOWER_TAR_GZ]
+patches = [
+    '%(name)s-%(version_major_minor)s.3-add_ompi_datatype_attribute_to_release_ucp_datatype.patch',
+    '%(name)s-%(version_major_minor)s.4_openib-device-params-ConnectX-6.patch',
+    'mca-btl-openib-device-params.ini-ZIH.patch',
+    'mca-params.patch',
+]
+checksums = [
+    'a7c34ad052ea8201ed9e7389994069fe6996403beabdd2d711caf0532808156c',  # %(namelower)s-%(version)s.tar.gz
+    # %(name)s-%(version_major_minor)s.3-add_ompi_datatype_attribute_to_release_ucp_datatype.patch
+    '46fa94eb417954bdb297291bad4f4d32018af4911bebf3e59af6276eba6a50a9',
+    # %(name)s-%(version_major_minor)s.4_openib-device-params-ConnectX-6.patch
+    '77df4f04802f84c49659c0d89c92724972c0634ac2155ed787482c4ddf1ee999',
+]
+
+dependencies = [
+    ('zlib', '1.2.11', '', ('GCCcore', '8.3.0')),
+    ('hwloc', '1.11.12', '', ('GCCcore', '8.3.0')),
+    ('PMIx', '3.0.2', '', ('GCCcore', '8.3.0')),
+]
+
+configopts = "--with-slurm --with-pmix=/usr --with-pmix-libdir=/usr --with-knem=/opt/knem-1.1.4.90mlnx1 --enable-mpi-cxx"
+
+
+# to enable SLURM integration (site-specific)
+# configopts = '--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr'
+
+moduleclass = 'mpi'

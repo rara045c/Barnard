@@ -1,0 +1,52 @@
+name = 'OpenMPI'
+version = '4.1.1'
+
+homepage = 'https://www.open-mpi.org/'
+description = "The Open MPI Project is an open source MPI-3 implementation."
+
+toolchain = {'name': 'GCC', 'version': '11.2.0'}
+
+source_urls = ['https://www.open-mpi.org/software/ompi/v%(version_major_minor)s/downloads']
+sources = [SOURCELOWER_TAR_BZ2]
+patches = [
+    '%(name)s-%(version_major_minor)s.1_fix-bufferoverflow-in-common_ofi.patch',
+    '%(name)s-4.0.6_remove-pmix-check-in-pmi-switch.patch',
+    '%(name)s-%(version_major_minor)s.1_opal-pmix-package-rank.patch',
+    '%(name)s-%(version_major_minor)s.1_pmix3x-protection.patch',
+    '%(name)s-%(version_major_minor)s.0-1-pml-ucx-datatype-memleak.patch',
+    'mca-params.patch',
+]
+checksums = [
+    'e24f7a778bd11a71ad0c14587a7f5b00e68a71aa5623e2157bafee3d44c07cda',  # %(namelower)s-%(version)s.tar.bz2
+    # %(name)s-%(version_major_minor)s.1_fix-bufferoverflow-in-common_ofi.patch
+    'a189d834506f3d7c31eda6aa184598a3631ea24a94bc551d5ed1f053772ca49e',
+    # %(name)s-4.0.6_remove-pmix-check-in-pmi-switch.patch
+    '8acee6c9b2b4bf12873a39b85a58ca669de78e90d26186e52f221bb4853abc4d',
+    '04353672cf7be031e5306c94068d7012d99e6cd94b69d93230797ffcd7f31903',  # %(name)s-%(version_major_minor)s.1_opal-pmix-package-rank.patch
+    '384ef9f1fa803b0d71dae2ec0748d0f20295992437532afedf21478bda164ff8',  # %(name)s-%(version_major_minor)s.1_pmix3x-protection.patch
+    # %(name)s-%(version_major_minor)s.0-1-pml-ucx-datatype-memleak.patch
+    'a94a74b174ce783328abfd3656ff5196b89ef4c819fe4c8b8a0f1277123e76ea',
+]
+
+builddependencies = [
+    ('pkg-config', '0.29.2', '', ('GCCcore', '11.2.0')),
+]
+dependencies = [
+    ('zlib', '1.2.11', '', ('GCCcore', '11.2.0')),
+    ('hwloc', '2.5.0', '', ('GCCcore', '11.2.0')),
+    ('libevent', '2.1.12', '', ('GCCcore', '11.2.0')),
+    ('UCX', '1.11.2', '', ('GCCcore', '11.2.0')),
+    ('libfabric', '1.13.2', '', ('GCCcore', '11.2.0')),
+    ('PMIx', '4.1.0', '', ('GCCcore', '11.2.0')),
+]
+
+configopts = "--with-slurm --with-pmix=/usr --with-pmix-libdir=/usr --with-knem=/opt/knem-1.1.4.90mlnx1"
+
+
+# disable MPI1 compatibility for now, see what breaks...
+# configopts = '--enable-mpi1-compatibility '
+
+# to enable SLURM integration (site-specific)
+# configopts += '--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr'
+
+moduleclass = 'mpi'
