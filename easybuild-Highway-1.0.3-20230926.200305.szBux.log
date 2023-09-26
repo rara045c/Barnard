@@ -1,0 +1,237 @@
+== 2023-09-26 20:03:05,645 easyblock.py:313 INFO This is EasyBuild 4.7.0 (framework: 4.7.0, easyblocks: 4.7.0) on host login1.
+== 2023-09-26 20:03:05,645 easyblock.py:319 INFO This is easyblock CMakeMake from module easybuild.easyblocks.generic.cmakemake (/software/foundation/x86_64/Easybuild-4.7.0/lib/python3.6/site-packages/easybuild/easyblocks/generic/cmakemake.py)
+== 2023-09-26 20:03:05,645 easyblock.py:1040 INFO Build dir set to /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0
+== 2023-09-26 20:03:05,645 easyblock.py:1097 INFO Software install dir set to /software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0
+== 2023-09-26 20:03:05,645 easyblock.py:1102 INFO Module install dir set to /software/modules/rapids/r23.10/all
+== 2023-09-26 20:03:05,645 easyblock.py:288 INFO Init completed for application name Highway version 1.0.3
+== 2023-09-26 20:03:05,645 easyblock.py:4146 INFO Obtained application instance of for Highway (easyblock: CMakeMake)
+== 2023-09-26 20:03:05,645 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:05,645 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', github_account='highway', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:05,646 one.py:180 INFO Skipping reformatting value for parameter 'toolchain'
+== 2023-09-26 20:03:05,646 filetools.py:1918 INFO Creating directory /tmp/eb-gjy3igmd/reprod_20230926200305_1510071 (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:05,646 easyblock.py:4400 INFO Dumped easyconfig instance to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/Highway-1.0.3-GCCcore-11.3.0.eb
+== 2023-09-26 20:03:05,646 filetools.py:1918 INFO Creating directory /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/easyblocks (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:05,647 filetools.py:2431 INFO /software/foundation/x86_64/Easybuild-4.7.0/lib/python3.6/site-packages/easybuild/easyblocks/generic/configuremake.py copied to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/easyblocks/configuremake.py
+== 2023-09-26 20:03:05,647 easyblock.py:4380 INFO Dumped easyblock configuremake.py required for reproduction to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/easyblocks
+== 2023-09-26 20:03:05,647 filetools.py:2431 INFO /software/foundation/x86_64/Easybuild-4.7.0/lib/python3.6/site-packages/easybuild/easyblocks/generic/cmakemake.py copied to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/easyblocks/cmakemake.py
+== 2023-09-26 20:03:05,647 easyblock.py:4380 INFO Dumped easyblock cmakemake.py required for reproduction to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/easyblocks
+== 2023-09-26 20:03:05,647 filetools.py:1918 INFO Creating directory /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/hooks (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:05,648 filetools.py:2431 INFO /software/util/easybuild/ebhooks.py copied to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/hooks/ebhooks.py
+== 2023-09-26 20:03:05,648 easyblock.py:4412 INFO Dumped hooks file /software/util/easybuild/ebhooks.py which is (potentially) required for reproduction to /tmp/eb-gjy3igmd/reprod_20230926200305_1510071/hooks/ebhooks.py
+== 2023-09-26 20:03:05,648 easyblock.py:2177 INFO Number of iterations to perform for central part of installation procedure: 1
+== 2023-09-26 20:03:05,648 build_log.py:267 INFO building and installing Compiler/GCCcore/11.3.0/Highway/1.0.3...
+== 2023-09-26 20:03:05,651 filetools.py:2011 INFO Lock /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock does not exist
+== 2023-09-26 20:03:05,651 filetools.py:1952 INFO Creating lock at /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock...
+== 2023-09-26 20:03:05,651 filetools.py:1918 INFO Creating directory /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:05,653 filetools.py:1961 INFO Lock created: /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock
+== 2023-09-26 20:03:05,653 build_log.py:267 INFO fetching files...
+== 2023-09-26 20:03:05,653 easyblock.py:3872 INFO Starting fetch step
+== 2023-09-26 20:03:05,653 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:05,653 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:05,653 hooks.py:168 INFO Found pre_fetch_hook hook
+== 2023-09-26 20:03:05,653 hooks.py:200 INFO Running 'pre_fetch_hook' hook function (arguments: [<easybuild.easyblocks.generic.cmakemake.CMakeMake object at 0x7f211b236a20>])...
+== 2023-09-26 20:03:05,653 easyblock.py:3880 INFO Running method fetch_step part of step fetch
+== 2023-09-26 20:03:05,653 easyblock.py:2299 WARNING Easyconfig does not specify an EasyBuild-version (key 'easybuild_version')! Assuming the latest version
+== 2023-09-26 20:03:05,654 easyblock.py:803 INFO Considering directory in which easyconfig file is located when searching for 1.0.3.tar.gz: /home/rara045c/dependencies
+== 2023-09-26 20:03:05,654 tools.py:273 INFO Found location to 'eb' script via $EB_SCRIPT_PATH: /software/foundation/x86_64/Easybuild-4.7.0/bin/eb
+== 2023-09-26 20:03:05,654 tools.py:287 INFO Also considering installation prefix /software/foundation/x86_64/Easybuild-4.7.0 (determined via path to 'eb' script)...
+== 2023-09-26 20:03:05,654 filetools.py:1918 INFO Creating directory /dev/shm/rara045c/sources/h/Highway (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:06,130 filetools.py:821 INFO File size for https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz: None
+== 2023-09-26 20:03:06,270 filetools.py:828 INFO Downloaded file 1.0.3.tar.gz from url https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz to /dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz
+== 2023-09-26 20:03:06,270 filetools.py:860 INFO Successful download of file 1.0.3.tar.gz from url https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz to path /dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz
+== 2023-09-26 20:03:06,270 easyblock.py:939 INFO Successfully downloaded source file 1.0.3.tar.gz from https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz
+== 2023-09-26 20:03:06,270 easyblock.py:496 INFO Added sources: [{'name': '1.0.3.tar.gz', 'path': '/dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz', 'cmd': None, 'checksum': '566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e', 'finalpath': '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0'}]
+== 2023-09-26 20:03:06,271 easyblock.py:2342 INFO no patches provided
+== 2023-09-26 20:03:06,273 easyblock.py:2352 INFO md5 checksum for /dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz: d591cf12d8d1f9f237a015ffc691b7c2
+== 2023-09-26 20:03:06,275 easyblock.py:2352 INFO sha256 checksum for /dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz: 566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e
+== 2023-09-26 20:03:06,275 easyblock.py:2387 INFO Checking dirs that need to be created: ['/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', '/software/modules/rapids/r23.10/all/Compiler/GCCcore/11.3.0/Highway']
+== 2023-09-26 20:03:06,275 filetools.py:1918 INFO Creating directory /software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0 (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:06,297 filetools.py:1918 INFO Creating directory /software/modules/rapids/r23.10/all/Compiler/GCCcore/11.3.0/Highway (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:06,298 configuremake.py:95 INFO config.guess version: 2018-08-29 (last updated: 2023-09-15T14:07:16.537682, SHA256 checksum: c02eb9cc55c86cfd1e9a794e548d25db5c9539e7b2154beb649bc6e2cbffc74c)
+== 2023-09-26 20:03:06,298 configuremake.py:150 INFO Found config.guess at /dev/shm/rara045c/sources/generic/eb_v4.7.0/ConfigureMake/config.guess
+== 2023-09-26 20:03:06,298 build_log.py:267 INFO creating build dir, resetting environment...
+== 2023-09-26 20:03:06,298 easyblock.py:3872 INFO Starting ready step
+== 2023-09-26 20:03:06,298 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:06,298 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:06,298 easyblock.py:3880 INFO Running method check_readiness_step part of step ready
+== 2023-09-26 20:03:06,298 easyblock.py:2196 INFO Setting parallelism: 208
+== 2023-09-26 20:03:06,355 easyblock.py:2248 WARNING Loaded modules detected: ['release/23.04', 'slurm/slurm-paths']
+== 2023-09-26 20:03:06,356 easyblock.py:3880 INFO Running method make_builddir part of step ready
+== 2023-09-26 20:03:06,356 filetools.py:1918 INFO Creating directory /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0 (parents: True, set_gid: False, sticky: False)
+== 2023-09-26 20:03:06,356 easyblock.py:3880 INFO Running method reset_env part of step ready
+== 2023-09-26 20:03:06,356 easyblock.py:3880 INFO Running method handle_iterate_opts part of step ready
+== 2023-09-26 20:03:06,356 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:06,356 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', parallel='208', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:06,357 build_log.py:267 INFO unpacking...
+== 2023-09-26 20:03:06,357 easyblock.py:3872 INFO Starting source step
+== 2023-09-26 20:03:06,357 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:06,357 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', parallel='208', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:06,357 easyblock.py:3880 INFO Running method checksum_step part of step source
+== 2023-09-26 20:03:06,358 easyblock.py:2405 INFO Checksum verification for /dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz using 566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e passed.
+== 2023-09-26 20:03:06,359 easyblock.py:3880 INFO Running method extract_step part of step source
+== 2023-09-26 20:03:06,359 easyblock.py:2512 INFO Unpacking source 1.0.3.tar.gz
+== 2023-09-26 20:03:06,359 run.py:236 INFO running cmd: tar xzf /dev/shm/rara045c/sources/h/Highway/1.0.3.tar.gz 
+== 2023-09-26 20:03:06,383 build_log.py:267 INFO patching...
+== 2023-09-26 20:03:06,384 easyblock.py:3872 INFO Starting patch step
+== 2023-09-26 20:03:06,384 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:06,384 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', parallel='208', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:06,384 easyblock.py:3880 INFO Running method patch_step part of step patch
+== 2023-09-26 20:03:06,384 build_log.py:267 INFO preparing...
+== 2023-09-26 20:03:06,384 easyblock.py:3872 INFO Starting prepare step
+== 2023-09-26 20:03:06,384 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:06,384 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', parallel='208', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:06,384 easyblock.py:3880 INFO Running method prepare_step part of step prepare
+== 2023-09-26 20:03:06,670 modules.py:628 INFO Checking whether Compiler/GCCcore/11.3.0/binutils/2.38 exists...
+== 2023-09-26 20:03:06,670 modules.py:633 INFO Module Compiler/GCCcore/11.3.0/binutils/2.38 exists (found in list of available modules)
+== 2023-09-26 20:03:06,670 modules.py:656 INFO Result for existence check of Compiler/GCCcore/11.3.0/binutils/2.38 module: True
+== 2023-09-26 20:03:06,670 modules.py:628 INFO Checking whether Compiler/GCCcore/11.3.0/CMake/3.23.1 exists...
+== 2023-09-26 20:03:06,671 modules.py:633 INFO Module Compiler/GCCcore/11.3.0/CMake/3.23.1 exists (found in list of available modules)
+== 2023-09-26 20:03:06,671 modules.py:656 INFO Result for existence check of Compiler/GCCcore/11.3.0/CMake/3.23.1 module: True
+== 2023-09-26 20:03:06,671 modules.py:628 INFO Checking whether Compiler/GCCcore/11.3.0/googletest/1.11.0 exists...
+== 2023-09-26 20:03:06,671 modules.py:633 INFO Module Compiler/GCCcore/11.3.0/googletest/1.11.0 exists (found in list of available modules)
+== 2023-09-26 20:03:06,671 modules.py:656 INFO Result for existence check of Compiler/GCCcore/11.3.0/googletest/1.11.0 module: True
+== 2023-09-26 20:03:06,671 modules.py:628 INFO Checking whether Core/GCCcore/11.3.0 exists...
+== 2023-09-26 20:03:06,671 modules.py:636 INFO Module Core/GCCcore/11.3.0 not found in list of available modules, checking via 'module show'...
+== 2023-09-26 20:03:06,940 modules.py:656 INFO Result for existence check of Core/GCCcore/11.3.0 module: True
+== 2023-09-26 20:03:07,786 environment.py:93 INFO Environment variable LD_LIBRARY_PATH set to /software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib:/software/rapids/r23.10/zlib/1.2.12-GCCcore-11.3.0/lib:/software/rapids/r23.10/GCCcore/11.3.0/lib64:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib (previous value: '/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib:/software/rapids/r23.10/zlib/1.2.12-GCCcore-11.3.0/lib:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib')
+== 2023-09-26 20:03:08,169 environment.py:93 INFO Environment variable LD_LIBRARY_PATH set to /software/rapids/r23.10/libarchive/3.6.1-GCCcore-11.3.0/lib:/software/rapids/r23.10/XZ/5.2.5-GCCcore-11.3.0/lib:/software/rapids/r23.10/cURL/7.83.0-GCCcore-11.3.0/lib:/software/rapids/r23.10/OpenSSL/1.1/lib:/software/rapids/r23.10/bzip2/1.0.8-GCCcore-11.3.0/lib:/software/rapids/r23.10/ncurses/6.3-GCCcore-11.3.0/lib:/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib:/software/rapids/r23.10/zlib/1.2.12-GCCcore-11.3.0/lib:/software/rapids/r23.10/GCCcore/11.3.0/lib64:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib (previous value: '/software/rapids/r23.10/libarchive/3.6.1-GCCcore-11.3.0/lib:/software/rapids/r23.10/XZ/5.2.5-GCCcore-11.3.0/lib:/software/rapids/r23.10/cURL/7.83.0-GCCcore-11.3.0/lib:/software/rapids/r23.10/OpenSSL/1.1/lib:/software/rapids/r23.10/bzip2/1.0.8-GCCcore-11.3.0/lib:/software/rapids/r23.10/ncurses/6.3-GCCcore-11.3.0/lib:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib')
+== 2023-09-26 20:03:08,541 environment.py:93 INFO Environment variable LD_LIBRARY_PATH set to /software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib:/software/rapids/r23.10/libarchive/3.6.1-GCCcore-11.3.0/lib:/software/rapids/r23.10/XZ/5.2.5-GCCcore-11.3.0/lib:/software/rapids/r23.10/cURL/7.83.0-GCCcore-11.3.0/lib:/software/rapids/r23.10/OpenSSL/1.1/lib:/software/rapids/r23.10/bzip2/1.0.8-GCCcore-11.3.0/lib:/software/rapids/r23.10/ncurses/6.3-GCCcore-11.3.0/lib:/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib:/software/rapids/r23.10/zlib/1.2.12-GCCcore-11.3.0/lib:/software/rapids/r23.10/GCCcore/11.3.0/lib64:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib (previous value: '/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib')
+== 2023-09-26 20:03:08,542 modules.py:628 INFO Checking whether GCCcore/11.3.0 exists...
+== 2023-09-26 20:03:08,542 modules.py:636 INFO Module GCCcore/11.3.0 not found in list of available modules, checking via 'module show'...
+== 2023-09-26 20:03:08,542 modules.py:656 INFO Result for existence check of GCCcore/11.3.0 module: True
+== 2023-09-26 20:03:08,543 toolchain.py:762 INFO List of toolchain dependency modules and toolchain definition match!
+== 2023-09-26 20:03:08,544 compiler.py:363 INFO _set_optimal_architecture: using march=native as optarch for x86_64.
+== 2023-09-26 20:03:08,544 variables.py:203 WARNING flags_for_subdirs: directory /software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/include was not found
+== 2023-09-26 20:03:08,545 variables.py:203 WARNING flags_for_subdirs: directory /software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/lib64 was not found
+== 2023-09-26 20:03:08,545 variables.py:203 WARNING flags_for_subdirs: directory /software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/lib was not found
+== 2023-09-26 20:03:08,545 environment.py:93 INFO Environment variable CC set to gcc (previously undefined)
+== 2023-09-26 20:03:08,545 environment.py:93 INFO Environment variable EBVARCC set to gcc (previously undefined)
+== 2023-09-26 20:03:08,545 environment.py:93 INFO Environment variable CFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previous value: '-march=skylake-avx512')
+== 2023-09-26 20:03:08,545 environment.py:93 INFO Environment variable EBVARCFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,545 environment.py:93 INFO Environment variable CPPFLAGS set to -I/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/include -I/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/include (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARCPPFLAGS set to -I/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/include -I/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/include (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable CXX set to g++ (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARCXX set to g++ (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable CXXFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previous value: '-march=skylake-avx512')
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARCXXFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable F77 set to gfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARF77 set to gfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable F90 set to gfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARF90 set to gfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable F90FLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARF90FLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable FC set to gfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARFC set to gfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable FCFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARFCFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable FFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARFFLAGS set to -O2 -ftree-vectorize -march=native -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable FLIBS set to -lgfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARFLIBS set to -lgfortran (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable LDFLAGS set to -L/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib64 -L/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib -L/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib64 -L/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib -L/software/rapids/r23.10/GCCcore/11.3.0/lib64 -L/software/rapids/r23.10/GCCcore/11.3.0/lib (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARLDFLAGS set to -L/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib64 -L/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib -L/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib64 -L/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib -L/software/rapids/r23.10/GCCcore/11.3.0/lib64 -L/software/rapids/r23.10/GCCcore/11.3.0/lib (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable LIBS set to -lm -lpthread (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVARLIBS set to -lm -lpthread (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable OPTFLAGS set to -O2 -ftree-vectorize -march=native (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable EBVAROPTFLAGS set to -O2 -ftree-vectorize -march=native (previously undefined)
+== 2023-09-26 20:03:08,546 environment.py:93 INFO Environment variable PRECFLAGS set to -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,547 environment.py:93 INFO Environment variable EBVARPRECFLAGS set to -fno-math-errno (previously undefined)
+== 2023-09-26 20:03:08,547 easyblock.py:2080 INFO Using /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/ as start dir
+== 2023-09-26 20:03:08,547 hooks.py:168 INFO Found post_prepare_hook hook
+== 2023-09-26 20:03:08,547 hooks.py:200 INFO Running 'post_prepare_hook' hook function (arguments: [<easybuild.easyblocks.generic.cmakemake.CMakeMake object at 0x7f211b236a20>])...
+== 2023-09-26 20:03:08,547 build_log.py:267 INFO ... (took 2 secs)
+== 2023-09-26 20:03:08,547 build_log.py:267 INFO configuring...
+== 2023-09-26 20:03:08,547 easyblock.py:3872 INFO Starting configure step
+== 2023-09-26 20:03:08,547 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:08,547 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', parallel='208', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:08,547 easyblock.py:3880 INFO Running method configure_step part of step configure
+== 2023-09-26 20:03:08,547 environment.py:93 INFO Environment variable CMAKE_INCLUDE_PATH set to /software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/include:/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/include:/software/rapids/r23.10/libarchive/3.6.1-GCCcore-11.3.0/include:/software/rapids/r23.10/XZ/5.2.5-GCCcore-11.3.0/include:/software/rapids/r23.10/cURL/7.83.0-GCCcore-11.3.0/include:/software/rapids/r23.10/OpenSSL/1.1/include:/software/rapids/r23.10/bzip2/1.0.8-GCCcore-11.3.0/include:/software/rapids/r23.10/ncurses/6.3-GCCcore-11.3.0/include:/software/rapids/r23.10/zlib/1.2.12-GCCcore-11.3.0/include (previously undefined)
+== 2023-09-26 20:03:08,547 environment.py:93 INFO Environment variable CMAKE_LIBRARY_PATH set to /software/rapids/r23.10/GCCcore/11.3.0/lib64:/software/rapids/r23.10/GCCcore/11.3.0/lib:/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib64:/software/rapids/r23.10/binutils/2.38-GCCcore-11.3.0/lib:/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib64:/software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib:/software/rapids/r23.10/libarchive/3.6.1-GCCcore-11.3.0/lib:/software/rapids/r23.10/XZ/5.2.5-GCCcore-11.3.0/lib:/software/rapids/r23.10/cURL/7.83.0-GCCcore-11.3.0/lib:/software/rapids/r23.10/OpenSSL/1.1/lib:/software/rapids/r23.10/bzip2/1.0.8-GCCcore-11.3.0/lib:/software/rapids/r23.10/ncurses/6.3-GCCcore-11.3.0/lib:/software/rapids/r23.10/zlib/1.2.12-GCCcore-11.3.0/lib:/opt/slurm/current/lib/slurm:/opt/slurm/current/lib (previous value: '/software/rapids/r23.10/GCCcore/11.3.0/lib64')
+== 2023-09-26 20:03:08,547 environment.py:93 INFO Environment variable FC set to gfortran (previous value: 'gfortran')
+== 2023-09-26 20:03:08,548 run.py:236 INFO running cmd:  cmake  -DCMAKE_INSTALL_PREFIX=/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0 -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DHWY_SYSTEM_GTEST=ON /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/ 
+== 2023-09-26 20:03:09,913 run.py:648 INFO cmd " cmake  -DCMAKE_INSTALL_PREFIX=/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0 -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DHWY_SYSTEM_GTEST=ON /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/" exited with exit code 0 and output:
+-- The C compiler identification is GNU 11.3.0
+-- The CXX compiler identification is GNU 11.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /software/rapids/r23.10/GCCcore/11.3.0/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /software/rapids/r23.10/GCCcore/11.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test ATOMICS_LOCK_FREE_INSTRUCTIONS
+-- Performing Test ATOMICS_LOCK_FREE_INSTRUCTIONS - Success
+-- Performing Test HWY_EMSCRIPTEN
+-- Performing Test HWY_EMSCRIPTEN - Failed
+-- Performing Test HWY_RISCV
+-- Performing Test HWY_RISCV - Failed
+-- Looking for sys/auxv.h
+-- Looking for sys/auxv.h - found
+-- Found GTest: /software/rapids/r23.10/googletest/1.11.0-GCCcore-11.3.0/lib64/cmake/GTest/GTestConfig.cmake (found version "1.11.0")  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj
+
+== 2023-09-26 20:03:09,913 run.py:701 INFO parse_log_for_error msg: Command used:  cmake  -DCMAKE_INSTALL_PREFIX=/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0 -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DHWY_SYSTEM_GTEST=ON /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/
+== 2023-09-26 20:03:09,913 run.py:703 INFO parse_log_for_error (some may be harmless) regExp (?<![(,-]|\w)(?:error|segmentation fault|failed)(?![(,-]|\.?\w) found:
+-- Performing Test HWY_EMSCRIPTEN - Failed
+-- Performing Test HWY_RISCV - Failed
+== 2023-09-26 20:03:09,913 run.py:660 WARNING Found 2 errors in command output (output: -- Performing Test HWY_EMSCRIPTEN - Failed
+	-- Performing Test HWY_RISCV - Failed)
+== 2023-09-26 20:03:09,914 build_log.py:267 INFO ... (took 1 secs)
+== 2023-09-26 20:03:09,914 build_log.py:267 INFO building...
+== 2023-09-26 20:03:09,914 easyblock.py:3872 INFO Starting build step
+== 2023-09-26 20:03:09,914 easyconfig.py:1688 INFO Generating template values...
+== 2023-09-26 20:03:09,914 easyconfig.py:1707 INFO Template values: arch='x86_64', bitbucket_account='highway', builddir='/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0', github_account='highway', installdir='/software/rapids/r23.10/Highway/1.0.3-GCCcore-11.3.0', module_name='Highway/1.0.3', name='Highway', nameletter='H', nameletterlower='h', namelower='highway', parallel='208', toolchain_name='GCCcore', toolchain_version='11.3.0', version='1.0.3', version_major='1', version_major_minor='1.0', version_minor='0', versionprefix='', versionsuffix=''
+== 2023-09-26 20:03:09,914 easyblock.py:3880 INFO Running method build_step part of step build
+== 2023-09-26 20:03:09,914 configuremake.py:350 INFO Building target ''
+== 2023-09-26 20:03:09,914 run.py:236 INFO running cmd:  make  -j 208  
+== 2023-09-26 20:03:10,999 build_log.py:171 ERROR EasyBuild crashed with an error (at easybuild/base/exceptions.py:126 in __init__): cmd " make  -j 208 " exited with exit code 2 and output:
+/software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/bin/cmake -S/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -B/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj --check-build-system CMakeFiles/Makefile.cmake 0
+/software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/bin/cmake -E cmake_progress_start /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj/CMakeFiles /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj//CMakeFiles/progress.marks
+make  -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj'
+make  -f CMakeFiles/hwy.dir/build.make CMakeFiles/hwy.dir/depend
+make[2]: Entering directory '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj'
+cd /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj && /software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/bin/cmake -E cmake_depends "Unix Makefiles" /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj/CMakeFiles/hwy.dir/DependInfo.cmake --color=
+make[2]: Leaving directory '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj'
+make  -f CMakeFiles/hwy.dir/build.make CMakeFiles/hwy.dir/build
+make[2]: Entering directory '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj'
+[  1%] Building CXX object CMakeFiles/hwy.dir/hwy/aligned_allocator.cc.o
+[  2%] Building CXX object CMakeFiles/hwy.dir/hwy/nanobenchmark.cc.o
+/software/rapids/r23.10/GCCcore/11.3.0/bin/g++ -DHWY_STATIC_DEFINE -I/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -O2 -ftree-vectorize -march=native -fno-math-errno -O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-builtin-macro-redefined -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" -fmerge-all-constants -Wall -Wextra -Wconversion -Wsign-conversion -Wvla -Wnon-virtual-dtor -fmath-errno -fno-exceptions -MD -MT CMakeFiles/hwy.dir/hwy/aligned_allocator.cc.o -MF CMakeFiles/hwy.dir/hwy/aligned_allocator.cc.o.d -o CMakeFiles/hwy.dir/hwy/aligned_allocator.cc.o -c /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/aligned_allocator.cc
+[  3%] Building CXX object CMakeFiles/hwy.dir/hwy/per_target.cc.o
+/software/rapids/r23.10/GCCcore/11.3.0/bin/g++ -DHWY_STATIC_DEFINE -I/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -O2 -ftree-vectorize -march=native -fno-math-errno -O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-builtin-macro-redefined -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" -fmerge-all-constants -Wall -Wextra -Wconversion -Wsign-conversion -Wvla -Wnon-virtual-dtor -fmath-errno -fno-exceptions -MD -MT CMakeFiles/hwy.dir/hwy/nanobenchmark.cc.o -MF CMakeFiles/hwy.dir/hwy/nanobenchmark.cc.o.d -o CMakeFiles/hwy.dir/hwy/nanobenchmark.cc.o -c /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/nanobenchmark.cc
+[  3%] Building CXX object CMakeFiles/hwy.dir/hwy/print.cc.o
+[  4%] Building CXX object CMakeFiles/hwy.dir/hwy/targets.cc.o
+/software/rapids/r23.10/GCCcore/11.3.0/bin/g++ -DHWY_STATIC_DEFINE -I/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -O2 -ftree-vectorize -march=native -fno-math-errno -O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-builtin-macro-redefined -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" -fmerge-all-constants -Wall -Wextra -Wconversion -Wsign-conversion -Wvla -Wnon-virtual-dtor -fmath-errno -fno-exceptions -MD -MT CMakeFiles/hwy.dir/hwy/per_target.cc.o -MF CMakeFiles/hwy.dir/hwy/per_target.cc.o.d -o CMakeFiles/hwy.dir/hwy/per_target.cc.o -c /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/per_target.cc
+/software/rapids/r23.10/GCCcore/11.3.0/bin/g++ -DHWY_STATIC_DEFINE -I/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -O2 -ftree-vectorize -march=native -fno-math-errno -O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-builtin-macro-redefined -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" -fmerge-all-constants -Wall -Wextra -Wconversion -Wsign-conversion -Wvla -Wnon-virtual-dtor -fmath-errno -fno-exceptions -MD -MT CMakeFiles/hwy.dir/hwy/print.cc.o -MF CMakeFiles/hwy.dir/hwy/print.cc.o.d -o CMakeFiles/hwy.dir/hwy/print.cc.o -c /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/print.cc
+/software/rapids/r23.10/GCCcore/11.3.0/bin/g++ -DHWY_STATIC_DEFINE -I/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -O2 -ftree-vectorize -march=native -fno-math-errno -O3 -DNDEBUG -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-builtin-macro-redefined -D__DATE__=\"redacted\" -D__TIMESTAMP__=\"redacted\" -D__TIME__=\"redacted\" -fmerge-all-constants -Wall -Wextra -Wconversion -Wsign-conversion -Wvla -Wnon-virtual-dtor -fmath-errno -fno-exceptions -MD -MT CMakeFiles/hwy.dir/hwy/targets.cc.o -MF CMakeFiles/hwy.dir/hwy/targets.cc.o.d -o CMakeFiles/hwy.dir/hwy/targets.cc.o -c /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/targets.cc
+In file included from /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/foreach_target.h:23,
+                 from /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/per_target.cc:20:
+/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/detect_targets.h:476:2: error: #error "Logic error: best baseline should be included in dynamic targets"
+  476 | #error "Logic error: best baseline should be included in dynamic targets"
+      |  ^~~~~
+In file included from /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/targets.h:29,
+                 from /dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/targets.cc:16:
+/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3/hwy/detect_targets.h:476:2: error: #error "Logic error: best baseline should be included in dynamic targets"
+  476 | #error "Logic error: best baseline should be included in dynamic targets"
+      |  ^~~~~
+make[2]: *** [CMakeFiles/hwy.dir/build.make:135: CMakeFiles/hwy.dir/hwy/targets.cc.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/hwy.dir/build.make:107: CMakeFiles/hwy.dir/hwy/per_target.cc.o] Error 1
+make[2]: Leaving directory '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj'
+make[1]: *** [CMakeFiles/Makefile2:190: CMakeFiles/hwy.dir/all] Error 2
+make[1]: Leaving directory '/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj'
+make: *** [Makefile:149: all] Error 2
+ (at easybuild/tools/run.py:643 in parse_cmd_output)
+== 2023-09-26 20:03:11,000 build_log.py:267 INFO ... (took 1 secs)
+== 2023-09-26 20:03:11,000 filetools.py:2019 INFO Removing lock /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock...
+== 2023-09-26 20:03:11,003 filetools.py:384 INFO Path /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock successfully removed.
+== 2023-09-26 20:03:11,003 filetools.py:2023 INFO Lock removed: /software/rapids/r23.10/.locks/_software_rapids_r23.10_Highway_1.0.3-GCCcore-11.3.0.lock
+== 2023-09-26 20:03:11,003 easyblock.py:4203 WARNING build failed (first 300 chars): cmd " make  -j 208 " exited with exit code 2 and output:
+/software/rapids/r23.10/CMake/3.23.1-GCCcore-11.3.0/bin/cmake -S/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/highway-1.0.3 -B/dev/shm/rara045c/build/Highway/1.0.3/GCCcore-11.3.0/easybuild_obj --check-build-system CMakeFiles/Makefile.cm
+== 2023-09-26 20:03:11,003 easyblock.py:328 INFO Closing log for application name Highway version 1.0.3
